@@ -11,7 +11,7 @@ The script is broken into small focused functions:
 - `build_customers` — extracts unique customers
 - `build_items` — aggregates item prices and order counts
 - `save_json` — writes output files
-- `main` — ties everything together and handles CLI arguments via `argparse`
+- `main` — ties everything together and handles CLI arguments via `argparse` with clear logging 
 
 ## How to use
 

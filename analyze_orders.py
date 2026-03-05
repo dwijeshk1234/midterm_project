@@ -37,6 +37,8 @@ def main():
     parser = argparse.ArgumentParser(description="Analyze Dosa restaurant orders.")
     parser.add_argument("orders_file", help="Path to the JSON orders file")
     args = parser.parse_args()
+    print(f"Reading orders from {args.orders_file}...")
+
 
     orders = load_orders(args.orders_file)
 

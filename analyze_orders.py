@@ -48,7 +48,9 @@ def main():
 
     items = build_items(orders)
     save_json(items, "items.json")
+    total_revenue=sum(item["price"] * item["orders"] for item in items.values())
     print(f"Saved {len(items)} items to items.json")
+    print(f"Total revenue: ${total_revenue:.2f}")
 
 
 if __name__ == "__main__":

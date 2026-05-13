@@ -8,11 +8,7 @@
 
 ## What this is
 
-A backend REST API for a dosa restaurant. we can create customers, add menu items, and place orders. Everything gets saved to a SQLite database file on wer computer. There is no frontend — we test it through the browser at `/docs` or with curl commands in the terminal.
-
-Built with FastAPI and SQLite. No extra database setup needed — SQLite is built into Python.
-
-\---
+A backend REST API for a dosa restaurant. You can create customers, add menu items, and place orders. Everything is saved to a SQLite database file on your computer. There is no frontend — test everything through the browser at `/docs` or using curl commands.---
 
 ## How the data connects
 

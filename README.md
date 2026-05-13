@@ -185,3 +185,15 @@ The right order to test: create a customer first, then an item, then an order th
 * The database is a single file (`db.sqlite`) on we computer. If we delete it, all data is gone.
 * No way to list all customers or all items right now — we can only fetch by ID.
 
+
+
+\## Project Structure
+
+
+
+\- `main.py` — FastAPI server with all endpoints
+
+\- `init\_db.py` — Creates SQLite database with proper schema and foreign keys
+
+\- `db.sqlite` — Database file (generated after running init\_db.py)
+

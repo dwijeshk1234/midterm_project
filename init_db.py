@@ -1,13 +1,24 @@
 """
-init_db.py
+init_db.py - Database initialization module for Dosa Restaurant API
+
+Provides utilities to initialize SQLite database with proper schema including
+customers, items, orders, and order_items tables with foreign key constraints.
 """
 
 import sqlite3
-import os
+from typing import None
 
 
-def init_db():
-    db_path = "db.sqlite"
+def init_db() -> None:
+    """
+    
+    Creates tables for customers, items, orders, and order_items with proper
+    foreign key relationships and data validation constraints.
+    
+    Raises:
+        sqlite3.OperationalError: If database creation fails
+    """
+    db_path: str = "db.sqlite"
 
     print(f"Setting up database at: {db_path}")
 
@@ -66,7 +77,6 @@ def init_db():
     conn.close()
 
     print("Done! Tables created: customers, items, orders, order_items")
-
 
 
 if __name__ == "__main__":

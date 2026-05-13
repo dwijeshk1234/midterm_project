@@ -1,14 +1,14 @@
 """
-main.py
+main.py - FastAPI server for Dosa Restaurant API
 
-The restaurant API server. Handles customers, items, and orders.
-
+Provides RESTful endpoints for managing customers, menu items, and orders
+with SQLite database backend.
 """
 
 import sqlite3
 import time
 from contextlib import contextmanager
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, field_validator
@@ -123,6 +123,11 @@ class OrderOut(BaseModel):
     item_ids: List[int]
 
 
+class DeleteResponse(BaseModel):
+    """Response model for delete operations."""
+    message: str
+
+
 
 def fetch_order_by_id(conn, order_id: int):
 
@@ -231,7 +236,7 @@ def update_customer(customer_id: int, body: CustomerIn):
     return {"id": customer_id, "name": body.name, "phone": body.phone}
 
 
-@app.delete("/customers/{customer_id}")
+@app.delete("/customers/{customer_id}", response_model=DeleteResponse)
 def delete_customer(customer_id: int):
     """
     Delete a customer.
@@ -328,7 +333,7 @@ def update_item(item_id: int, body: ItemIn):
     return {"id": item_id, "name": body.name, "price": body.price}
 
 
-@app.delete("/items/{item_id}")
+@app.delete("/items/{item_id}", response_model=DeleteResponse)
 def delete_item(item_id: int):
     """
     Delete a menu item.
@@ -451,7 +456,7 @@ def update_order(order_id: int, body: OrderIn):
     }
 
 
-@app.delete("/orders/{order_id}")
+@app.delete("/orders/{order_id}", response_model=DeleteResponse)
 def delete_order(order_id: int):
 
     with get_db() as conn:
